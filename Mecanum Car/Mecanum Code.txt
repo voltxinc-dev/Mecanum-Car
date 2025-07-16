@@ -1,0 +1,134 @@
+String a;
+
+//4,5 and 8,9 forward from lo hi
+//2,3 and 6,7 forward from hi lo 
+void setup() {
+    pinMode(2, OUTPUT);
+    pinMode(3, OUTPUT);
+    pinMode(4, OUTPUT);
+    pinMode(5, OUTPUT);
+    pinMode(6, OUTPUT);
+    pinMode(7, OUTPUT);
+    pinMode(8, OUTPUT);
+    pinMode(9, OUTPUT);
+    Serial.begin(9600);
+}
+
+void loop() {
+    if (Serial.available() > 0) {
+        a = Serial.read();
+        Serial.println(a);
+        if (a.equals("2")) {//forward
+            digitalWrite(2, HIGH);
+            digitalWrite(4, LOW);
+            digitalWrite(6, HIGH);
+            digitalWrite(8, LOW);
+            digitalWrite(3, LOW);
+            digitalWrite(5, HIGH);
+            digitalWrite(7, LOW);
+            digitalWrite(9, HIGH);
+        } 
+        else if (a.equals("7")) {//backward
+            digitalWrite(2, LOW);
+            digitalWrite(4, HIGH);
+            digitalWrite(6, LOW);
+            digitalWrite(8, HIGH);
+            digitalWrite(3, HIGH);
+            digitalWrite(5, LOW);
+            digitalWrite(7, HIGH);
+            digitalWrite(9, LOW);
+        }
+        else if (a.equals("4")) {//left
+            digitalWrite(2, LOW);
+            digitalWrite(4, LOW);
+            digitalWrite(6, HIGH);
+            digitalWrite(8,HIGH);
+            digitalWrite(3, HIGH);
+            digitalWrite(5, HIGH);
+            digitalWrite(7, LOW);
+            digitalWrite(9, LOW);
+       }
+       else if (a.equals("5")) {//right
+           digitalWrite(2, HIGH);
+           digitalWrite(4, HIGH);
+           digitalWrite(6, LOW);
+           digitalWrite(8, LOW);
+           digitalWrite(3, LOW);
+           digitalWrite(5, LOW);
+           digitalWrite(7, HIGH);
+           digitalWrite(9, HIGH);
+       }
+      else if (a.equals("3")) {//LEFT FORWARD
+          digitalWrite(2, LOW);
+          digitalWrite(4, LOW);
+          digitalWrite(6, HIGH);
+          digitalWrite(8, LOW);
+          digitalWrite(3, LOW);
+          digitalWrite(5, HIGH);
+          digitalWrite(7, LOW);
+          digitalWrite(9, LOW);
+      }
+     else if (a.equals("1")) {//RIGHT FORWARD
+          digitalWrite(2, HIGH);
+          digitalWrite(4, LOW);
+          digitalWrite(6, LOW);
+          digitalWrite(8, LOW);
+          digitalWrite(3, LOW);
+          digitalWrite(5, LOW);
+          digitalWrite(7, LOW);
+          digitalWrite(9, HIGH);
+     }
+    else if (a.equals("8")) {//LEFT BACK
+          digitalWrite(2, LOW);
+          digitalWrite(4, LOW);
+          digitalWrite(6, LOW);
+          digitalWrite(8, HIGH);
+          digitalWrite(3, HIGH);
+          digitalWrite(5, LOW);
+          digitalWrite(7, LOW);
+          digitalWrite(9, LOW);
+     } 
+    else if (a.equals("6")) {//RIGHT BACK
+          digitalWrite(2, LOW);
+          digitalWrite(4, HIGH);
+          digitalWrite(6, LOW);
+          digitalWrite(8, LOW 
+          );
+          digitalWrite(3, LOW);
+          digitalWrite(5, LOW);
+          digitalWrite(7, HIGH);
+          digitalWrite(9, LOW);
+     } 
+    else if (a.equals("10")) {//ROT LEFT
+          digitalWrite(2, HIGH);
+          digitalWrite(4, HIGH);
+          digitalWrite(6, HIGH);
+          digitalWrite(8, HIGH);
+          digitalWrite(3, LOW);
+          digitalWrite(5, LOW);
+          digitalWrite(7, LOW);
+          digitalWrite(9, LOW);
+     }
+    else if (a.equals("9")) {//ROT RIGHT
+          digitalWrite(2, LOW);
+          digitalWrite(4, LOW);
+          digitalWrite(6, LOW);
+          digitalWrite(8, LOW);
+          digitalWrite(3, HIGH);
+          digitalWrite(5, HIGH);
+          digitalWrite(7, HIGH);
+          digitalWrite(9, HIGH);
+     }
+    else if (a.equals("0")){
+      digitalWrite(2, LOW);
+      digitalWrite(4, LOW);
+      digitalWrite(6, LOW);
+      digitalWrite(8, LOW);
+      digitalWrite(3, LOW);
+      digitalWrite(5, LOW);
+      digitalWrite(7, LOW);
+      digitalWrite(9, LOW);
+          
+    }
+    }
+}
